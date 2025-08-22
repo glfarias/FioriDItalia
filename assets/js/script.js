@@ -47,7 +47,7 @@ function addListenersToSections() {
 
 function scrollIntoSection(sectionId) {
     const section = document.getElementById(`${sectionId}`);
-    section.scrollIntoView()
+    section.scrollIntoView({behavior: "smooth"})
 }
 
 loadSections()
