@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+/* BETTER MOBILES (iPhone 11+)  */
+@media screen and (min-width: 390px) {
+    
+}
+
+/* TABLETS (PORTRAIT) */
+@media screen and (min-width: 768px) {
+
+    .logo-text {
+        font-size: 4.5em;
+    }
+
+    #instagram {
+        font-size: 2.5em;
+    }
+}
+/* TABLETS (LANDSCAPE) & SMALL LAPTOPS */
+
+@media screen and (min-width: 1024px) {
+    .logo-text {
+        font-size: 5.5em;
+    }
+
+    #instagram {
+        font-size: 3em;
+    }
+}
+
+/* DEFAULT DESKTOPS (FHD MONITORS) */
+@media screen and (min-width: 1200px) {
+    .logo-text {
+        font-size: 6.5em;
+    }
+
+    #instagram {
+        font-size: 3em;
+    }   
+}

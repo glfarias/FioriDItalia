@@ -1,0 +1,215 @@
+:root {
+    --myGreen: #2E7D32;
+    --myWhite: #F5F5F5;
+    --myRed: #C62828;
+    --myYellow: #FFCA28;
+    --myBrown: #6D4C41;
+    --myGold: #FFC107;
+    --myCharcoal: #212121;
+    --myBlack: #1A1A1A;
+    
+    --topbarHeight: 140px;
+    --sectionContainerHeight: 120px
+
+}
+
+@keyframes shake {
+    0%, 50% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+    25%, 75% { 
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(0deg);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: var(--topbarHeight);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--myBlack);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, var(--myGreen), var(--myWhite), var(--myRed)) 1;
+}
+
+.logo-container {
+    position: sticky;
+    height: calc(var(--topbarHeight) - 25px);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--myWhite);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo-container:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+#logo {
+    height: calc(var(--topbarHeight) - 40px);
+}
+
+.logo-text {
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3.3em;
+  cursor: default;
+  color: var(--myWhite);
+}
+
+#instagram {
+    color: var(--myWhite);
+    font-size: 2em;
+    transition: transform .35s ease-in-out;
+}
+
+#instagram:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+}
+
+
+
+main {
+    width: 100%;
+    height: calc(100vh - var(--topbarHeight));
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--myWhite);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.section-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--myBlack);
+    height: var(--sectionContainerHeight);
+    overflow-x: auto;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    text-align: center;
+}
+
+.section img {
+    height: 70px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.section p {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1em;
+    color: var(--myWhite);
+    
+}
+
+.floating-button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0px 15px 5px #fff;
+    background-image: linear-gradient(90deg, var(--myGreen), var(--myWhite), var(--myRed));
+    transition: all .35s;
+}
+
+#cart-icon {
+    font-size: 1.5em;
+    color: #000;
+    transition: all .35s;
+}
+
+.floating-button:hover {
+    width: 90px;
+    height: 90px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.floating-button:hover #cart-icon {
+    font-size: 2.5em;
+    animation: shake .75s forwards;
+}
+
+#pizzas, #calzones, #drinks, #desserts {
+    color: red;
+    scroll-margin-top: var(--sectionContainerHeight);
+}
+
+
+
+/* .section p {
+    position: relative;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 0.7em;
+    cursor: pointer;
+    color: var(--myWhite);
+}
+
+.section p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-image: linear-gradient(90deg, var(--myGreen), var(--myWhite), var(--myRed));
+    transition: all .2s ease-in-out;
+}
+
+.section p:hover::before {
+    width: 100%;
+} */
