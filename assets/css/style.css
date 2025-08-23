@@ -9,7 +9,8 @@
     --myBlack: #191919;
     
     --topbarHeight: 140px;
-    --sectionContainerHeight: 120px
+    --sectionContainerHeight: 120px;
+    --productHeight: 150px;
 
 }
 
@@ -68,7 +69,7 @@ header {
 }
 
 .logo-container:hover {
-    filter: brightness(90%);
+    filter: brightness(1.3);
     cursor: pointer;
 }
 
@@ -93,7 +94,7 @@ header {
 
 #instagram:hover {
     cursor: pointer;
-    transform: scale(1.25);
+    transform: scale(1.2);
 }
 
 
@@ -101,9 +102,10 @@ header {
 main {
     position: relative;
     width: 100%;
-    background-image: url('../img/bg.jpg');
+    min-height: calc(100vh - var(--topbarHeight));
+    background-image: url('../img/bg2.jpg');
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: 50% 20%;
     background-attachment: fixed;
     background-size: cover;
     margin-top: var(--topbarHeight);
@@ -120,7 +122,7 @@ main {
     justify-content: space-around;
     align-items: center;
     flex-shrink: 0;
-    background-color: var(--myBlack);
+    background-image: url('../img/bg.jpg');
     height: var(--sectionContainerHeight);
     overflow-x: auto;
 }
@@ -130,7 +132,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     gap: 10px;
     text-align: center;
 }
@@ -149,7 +150,12 @@ main {
     
 }
 
-.floating-button {
+.section:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.floating-cart {
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -171,20 +177,49 @@ main {
     transition: all .35s;
 }
 
-.floating-button:hover {
+.floating-cart:hover {
     transform: scale(1.25);
 }
 
-.floating-button:hover #cart-icon {
+.floating-cart:hover #cart-icon {
     animation: shake .75s forwards;
 }
 
 #pizzas, #calzones, #drinks, #desserts {
-    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--myWhite);
+    font-size: 2em;
     scroll-margin-top: calc(var(--topbarHeight) + var(--sectionContainerHeight));
 }
 
+.product {
+    background-color: #ffffffc5;
+    border-radius: 10px;
+    min-height: fit-content;
+    height: var(--productHeight);
+}
 
+.product-img {
+    width: 100px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 2px solid var(--myRed);
+}
+
+.product-title {
+    color: var(--myBlack);
+    font-size: 1.5em;
+
+}
+
+.product-description {
+    color: var(--myBrown);
+    font-size: 1.1em;
+}
+
+.product-counter span {
+    color: var(--myBlack);
+}
 
 /* .section p {
     position: relative;
