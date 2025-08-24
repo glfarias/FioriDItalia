@@ -8,9 +8,11 @@
     --myCharcoal: #212121;
     --myBlack: #191919;
     
-    --topbarHeight: 140px;
+    --topbarHeight: 150px;
     --sectionContainerHeight: 120px;
     --productHeight: 150px;
+
+    --productImgWidth: 40%;
 
 }
 
@@ -146,7 +148,7 @@ main {
 .section p {
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1em;
-    color: var(--myWhite);
+    color: var(--myGold);
     
 }
 
@@ -187,39 +189,61 @@ main {
 
 #pizzas, #calzones, #drinks, #desserts {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--myWhite);
+    color: #fff;
     font-size: 2em;
     scroll-margin-top: calc(var(--topbarHeight) + var(--sectionContainerHeight));
 }
 
 .product {
-    background-color: #ffffffc5;
-    border-radius: 10px;
     min-height: fit-content;
     height: var(--productHeight);
+    background-color: #ffffffd0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product:nth-child(2n) {
+    background-color: #ffffffc0;
 }
 
 .product-img {
-    width: 100px;
+    max-width: var(--productHeight);
+    width: var(--productImgWidth);
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    border: 2px solid var(--myRed);
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.title-description-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .product-title {
-    color: var(--myBlack);
-    font-size: 1.5em;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.8em;
 
 }
 
 .product-description {
-    color: var(--myBrown);
-    font-size: 1.1em;
+    color: var(--myBlack);
+    font-size: 1.4em;
+}
+
+/* .product-counter {
 }
 
 .product-counter span {
-    color: var(--myBlack);
-}
+} */
 
 /* .section p {
     position: relative;

@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
 /* BETTER MOBILES (iPhone 11+)  */
-@media screen and (min-width: 390px) {
-    
-}
+@media screen and (min-width: 390px) {}
 
 /* TABLETS (PORTRAIT) */
 @media screen and (min-width: 768px) {
@@ -16,11 +14,42 @@
         font-size: 2.5em;
     }
 }
+
 /* TABLETS (LANDSCAPE) & SMALL LAPTOPS */
 
 @media screen and (min-width: 1024px) {
+
+    body {
+        background-color: var(--myBlack);
+        display: flex;
+        justify-content: center;
+    }
+
+    main {
+        max-width: 70%;
+        border-left: .5px solid #fff;
+        border-right: .5px solid #fff;
+
+    }
+
+    .section p {
+        font-size: 1.2em;
+    }
+
+    .product-title {
+        color: #000;
+        font-weight: bold;
+        font-size: 2.5em;
+
+    }
+
+    .product-description {
+        color: var(--myBlack);
+        font-size: 1.8em;
+    }
+
     .logo-text {
-        font-size: 5.5em;
+        font-size: 6em;
     }
 
     #instagram {
@@ -31,10 +60,10 @@
 /* DEFAULT DESKTOPS (FHD MONITORS) */
 @media screen and (min-width: 1200px) {
     .logo-text {
-        font-size: 6.5em;
+        font-size: 7em;
     }
 
     #instagram {
-        font-size: 3em;
-    }   
+        font-size: 3.5em;
+    }
 }
