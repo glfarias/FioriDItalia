@@ -189,8 +189,10 @@ main {
 
 #pizzas, #calzones, #drinks, #desserts {
     font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
+    font-weight: bold;
     font-size: 2em;
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 10px var(--myGold);
     scroll-margin-top: calc(var(--topbarHeight) + var(--sectionContainerHeight));
 }
 
@@ -202,11 +204,6 @@ main {
     border-bottom-left-radius: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.product:nth-child(2n) {
-    background-color: #ffffffc0;
 }
 
 .product-img {
@@ -228,15 +225,17 @@ main {
 }
 
 .product-title {
-    color: #000;
+    font-family: "Cinzel", serif;
     font-weight: bold;
     font-size: 1.8em;
-
+    color: #000;
 }
 
 .product-description {
-    color: var(--myBlack);
+    font-family: "Amatic SC", sans-serif;
+    font-weight: bold;
     font-size: 1.4em;
+    color: #000;
 }
 
 /* .product-counter {
