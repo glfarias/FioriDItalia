@@ -146,8 +146,9 @@ main {
 }
 
 .section p {
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1em;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
     color: var(--myGold);
     
 }
@@ -167,7 +168,6 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    cursor: pointer;
     box-shadow: 0 0px 15px 5px #fff;
     background-image: linear-gradient(90deg, var(--myGreen), var(--myWhite), var(--myRed));
     transition: all .35s;
@@ -181,6 +181,7 @@ main {
 
 .floating-cart:hover {
     transform: scale(1.25);
+    cursor: pointer;
 }
 
 .floating-cart:hover #cart-icon {
@@ -194,6 +195,12 @@ main {
     color: #fff;
     text-shadow: 0 0 10px #fff, 0 0 10px var(--myGold);
     scroll-margin-top: calc(var(--topbarHeight) + var(--sectionContainerHeight));
+}
+
+.products-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .product {
