@@ -106,6 +106,8 @@ const PRODUCTS = {
 
 
 function loadSections() {
+    const sectionContainer = document.querySelector('.section-container')
+    sectionContainer.innerHTML = ''
     SECTIONS.forEach(section => {
         renderSections(section)
     })
@@ -197,7 +199,7 @@ function renderProducts(section) {
         tempFragment.appendChild(productDiv)
     })
 
-    // AT THE END OF THE LOOPS, TEMPHTML IS THE WHOLE STRUCTURE
+    // AT THE END OF THE LOOPS, TEMPFRAGMENT IS THE WHOLE STRUCTURE
     // ADDS TEMPFRAGMENT TO PRODUCTSCONTAINER ONLY ONCE, TO AVOID REFLOW/REPAINT
     productsContainer.appendChild(tempFragment)
 }
@@ -206,7 +208,23 @@ function addListenersToProducts() {
     const allProducts = document.querySelectorAll('.product');
     allProducts.forEach(product => {
         product.addEventListener('click', (click) => {
+            const cartIcon = document.getElementById('cart-icon')
+            const cartCounter = document.getElementById('cart-counter')
+            
+            setTimeout(() => {
+                cartIcon.style.animation = '';
+            }, 1500);
+            
             product.classList.toggle('blur')
+            setTimeout(() => {
+                if (product.classList.contains('blur')) {
+                    cartIcon.style.animation = 'add .75s forwards';
+                    cartCounter.textContent++
+                } else {
+                    cartIcon.style.animation = 'drop .75s';
+                    cartCounter.textContent--
+                }
+            }, 750);
         })
     })
 

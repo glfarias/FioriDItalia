@@ -7,7 +7,7 @@
     --myGold: #FFC107;
     --myCharcoal: #212121;
     --myBlack: #191919;
-    
+
     --topbarHeight: 150px;
     --sectionContainerHeight: 120px;
     --productHeight: 150px;
@@ -16,16 +16,27 @@
 
 }
 
-@keyframes shake {
-    0%, 50% {
-        transform: scale(1.1) rotate(-10deg);
-    }
-    25%, 75% { 
-        transform: scale(1.1) rotate(10deg);
-    }
-    100% {
-        transform: scale(1.1) rotate(0deg);
-    }
+@keyframes add {
+    0%, 50% { transform: rotate(-20deg); }
+    25%, 75% { transform: rotate(20deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes drop {
+    0%   { transform: rotate(0deg) translateY(0); }
+    20%  { transform: rotate(180deg) translateY(0); }
+    30%  { transform: rotate(180deg) translateY(-15px); }
+    40%  { transform: rotate(180deg) translateY(15px); }
+    50%  { transform: rotate(180deg) translateY(-10px); }
+    60%  { transform: rotate(180deg) translateY(10px); }
+    70%  { transform: rotate(180deg) translateY(-5px); }
+    80%  { transform: rotate(180deg) translateY(5px); }
+    100% { transform: rotate(0deg) translateY(0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
 }
 
 * {
@@ -150,7 +161,6 @@ main {
     font-weight: bold;
     font-size: 1.2em;
     color: var(--myGold);
-    
 }
 
 .section:hover {
@@ -179,13 +189,18 @@ main {
     transition: all .35s;
 }
 
+#cart-counter {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: #000;
+    text-shadow: 0px 0px 5px #000;
+}
+
 .floating-cart:hover {
     transform: scale(1.25);
     cursor: pointer;
-}
-
-.floating-cart:hover #cart-icon {
-    animation: shake .75s forwards;
 }
 
 #pizzas, #calzones, #drinks, #desserts {
@@ -211,6 +226,7 @@ main {
     border-bottom-left-radius: 20px;
     display: flex;
     align-items: center;
+    transition: filter .25s;
 }
 
 .product-img {
@@ -250,11 +266,21 @@ main {
     filter: blur(2px);
 }
 
-/* .product-counter {
+.skeleton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--myWhite);
+    height: 80px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
 }
 
-.product-counter span {
-} */
+.spinner {
+    font-size: 2.4em;
+    color: var(--myCharcoal);
+    animation: spin .9s infinite linear;
+}
 
 /* .section p {
     position: relative;
