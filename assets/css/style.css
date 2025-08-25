@@ -229,6 +229,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
+    gap: 8px;
 }
 
 .product-title {
@@ -243,6 +244,10 @@ main {
     font-weight: bold;
     font-size: 1.4em;
     color: #000;
+}
+
+.blur {
+    filter: blur(2px);
 }
 
 /* .product-counter {
