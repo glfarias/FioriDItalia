@@ -103,21 +103,33 @@ const PRODUCTS = {
     ]
 }
 
+
+
 function loadSections() {
-    const sectionContainer = document.querySelector('.section-container')
     SECTIONS.forEach(section => {
-        sectionContainer.innerHTML += `
-        <div class="section" data-target="${section.en}">
-        <img src="assets/img/${section.en}.jpeg">
-        <p>${section.es.toUpperCase()}</p>
-      </div>
-        `
+        renderSections(section)
     })
-
     addListenersToSections()
-
 }
 
+function renderSections(section) {
+    const sectionContainer = document.querySelector('.section-container')
+
+    const sectionDiv = document.createElement('div');
+    sectionDiv.classList.add('section');
+    sectionDiv.dataset.target = `${section.en}`;
+
+    const img = document.createElement('img');
+    img.src = `assets/img/${section.en}.jpeg`;
+
+    const p = document.createElement('p')
+    p.innerText = `${section.es.toUpperCase()}`
+
+    sectionDiv.appendChild(img)
+    sectionDiv.appendChild(p)
+
+    sectionContainer.appendChild(sectionDiv);
+}
 
 function addListenersToSections() {
     const allSections = document.querySelectorAll('.section');
@@ -131,10 +143,6 @@ function addListenersToSections() {
     })
 }
 
-function scrollIntoSection(sectionId) {
-    const section = document.getElementById(`${sectionId}`);
-    section.scrollIntoView({ behavior: "smooth"})
-}
 
 
 function loadProducts() {
@@ -145,30 +153,53 @@ function loadProducts() {
 }
 
 function renderProducts(section) {
+    const tempFragment = document.createDocumentFragment();
     const productsContainer = document.querySelector('.products-container');
-    productsContainer.innerHTML +=
-        `
-            <div id="${section.en}">
-                <p>${section.es.toUpperCase()}</p>
-            </div>
-        `;
 
-    console.log(section)
+    // RENDER SECTION TITLE (DIV WITH ID AND PARAGRAPH WITH TITLE)
+    const sectionDiv = document.createElement('div');
+    sectionDiv.id = `${section.en}`
+
+    const sectionDivP = document.createElement('p')
+    sectionDivP.textContent = `${section.es.toUpperCase()}`
+
+    sectionDiv.appendChild(sectionDivP)
+    productsContainer.appendChild(sectionDiv)
+
+
+    // ORGANIZE ELEMENTS AND STORES IT IN A TEMP FRAGMENT
     PRODUCTS[section.en].forEach(element => {
-        productsContainer.innerHTML +=
-            `
-            <div class="product">
 
-                <img src="assets/img/${element.fileName}.jpeg" alt="" class="product-img">
+        const img = document.createElement('img');
+        img.src = `assets/img/${element.fileName}.jpeg`
+        img.classList.add('product-img')
 
-                <div class="title-description-container">
-                    <p class="product-title">${element.title}</p>
-                    <p class="product-description">${element.description}</p>
-                </div>
+        const titleDescriptionContainerDiv = document.createElement('div');
+        titleDescriptionContainerDiv.classList.add('title-description-container')
 
-            </div>
-        `
+        const productTitleP = document.createElement('p');
+        productTitleP.classList.add('product-title');
+        productTitleP.textContent = `${element.title}`;
+
+        const productDescriptionP = document.createElement('p');
+        productDescriptionP.classList.add('product-description');
+        productDescriptionP.textContent = `${element.description}`;
+
+        titleDescriptionContainerDiv.appendChild(productTitleP);
+        titleDescriptionContainerDiv.appendChild(productDescriptionP);
+
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
+
+        productDiv.appendChild(img)
+        productDiv.appendChild(titleDescriptionContainerDiv)
+
+        tempFragment.appendChild(productDiv)
     })
+
+    // AT THE END OF THE LOOPS, TEMPHTML IS THE WHOLE STRUCTURE
+    // ADDS TEMPFRAGMENT TO PRODUCTSCONTAINER ONLY ONCE, TO AVOID REFLOW/REPAINT
+    productsContainer.appendChild(tempFragment)
 }
 
 function addListenersToProducts() {
@@ -180,6 +211,15 @@ function addListenersToProducts() {
     })
 
 }
+
+
+
+function scrollIntoSection(sectionId) {
+    const section = document.getElementById(`${sectionId}`);
+    section.scrollIntoView({ behavior: "smooth"})
+}
+
+
 
 loadSections()
 loadProducts()
