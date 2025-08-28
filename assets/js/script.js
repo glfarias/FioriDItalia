@@ -103,6 +103,37 @@ const PRODUCTS = {
     ]
 }
 
+function makeLogoClickable() {
+    const logoContainer = document.querySelector('.logo-container')
+    logoContainer.addEventListener('click', () => { window.open("https://www.instagram.com/fioriditaliapizzeria/", "_blank") })
+}
+
+function appendInstagramLogo() {
+    const header = document.querySelector('header')
+    const div = document.createElement('div')
+
+    const a = document.createElement('a')
+    a.href = "https://www.instagram.com/fioriditaliapizzeria/"
+    a.target = "_blank"
+
+    const i = document.createElement('i')
+    i.classList.add('fa-brands')
+    i.classList.add('fa-instagram')
+    i.id = "instagram"
+
+    a.appendChild(i)
+    div.appendChild(a)
+    header.appendChild(div)
+}
+
+function checkScreenSize() {
+    if (window.innerWidth < 768) {
+        makeLogoClickable()
+    } else {
+        appendInstagramLogo()
+    }
+}
+
 
 
 function loadSections() {
@@ -234,10 +265,11 @@ function addListenersToProducts() {
 
 function scrollIntoSection(sectionId) {
     const section = document.getElementById(`${sectionId}`);
-    section.scrollIntoView({ behavior: "smooth"})
+    section.scrollIntoView({ behavior: "smooth" })
 }
 
 
 
 loadSections()
 loadProducts()
+checkScreenSize()
